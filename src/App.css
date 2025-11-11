@@ -326,6 +326,11 @@
   .order-sidebar {
     width: 100%;
     right: -100%;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .order-sidebar.open {
+    right: 0;
   }
 }
 
@@ -410,6 +415,87 @@
   font-size: 14px;
   color: #666;
   margin: 0;
+}
+
+/* Floating Cart Button for Mobile */
+.floating-cart-btn {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #ff8c42 0%, #ff7a2e 100%);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(255, 140, 66, 0.4);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.floating-cart-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(255, 140, 66, 0.5);
+}
+
+.floating-cart-btn:active {
+  transform: scale(0.95);
+}
+
+.cart-icon {
+  font-size: 28px;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #d32f2f;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Close Cart Button */
+.close-cart-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #666;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s;
+}
+
+.close-cart-btn:hover {
+  background: rgba(0, 0, 0, 0.15);
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .floating-cart-btn {
+    display: flex;
+  }
+
+  .close-cart-btn {
+    display: flex;
+  }
 }
 
 @media (max-width: 768px) {

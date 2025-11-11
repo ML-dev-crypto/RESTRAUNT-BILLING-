@@ -18,6 +18,7 @@ function App() {
   const [showBill, setShowBill] = useState(false);
   const [showOrderSuccess, setShowOrderSuccess] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [showCart, setShowCart] = useState(false);
 
   const categories = ['All Dishes', 'Main', 'Sides', 'Desserts', 'Drinks'];
 
@@ -242,7 +243,8 @@ function App() {
         </div>
       </main>
 
-      <aside className="order-sidebar">
+      <aside className={`order-sidebar ${showCart ? 'open' : ''}`}>
+        <button className="close-cart-btn" onClick={() => setShowCart(false)}>✕</button>
         <OrderCart
           orderItems={orderItems}
           onUpdateQuantity={handleUpdateQuantity}
@@ -253,6 +255,14 @@ function App() {
           onGenerateBill={handleGenerateBill}
         />
       </aside>
+
+      {/* Floating Cart Button for Mobile */}
+      <button className="floating-cart-btn" onClick={() => setShowCart(true)}>
+        <span className="cart-icon">🛒</span>
+        {orderItems.length > 0 && (
+          <span className="cart-badge">{orderItems.length}</span>
+        )}
+      </button>
 
       {showBill && (
         <BillModal
